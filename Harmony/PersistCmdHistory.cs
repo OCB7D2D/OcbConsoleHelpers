@@ -22,7 +22,7 @@ class PersistCmdHistory
             foreach (var entry in File.ReadAllLines(FileName))
                 if (!string.IsNullOrEmpty(entry))
                     ___lastCommands.Add(entry);
-            ___lastCommandsIdx = ___lastCommands.Count - 1;
+            ___lastCommandsIdx = ___lastCommands.Count;
         }
     }
 
