@@ -40,3 +40,6 @@ Not that there is a great chance that the game will overwrite
 your changes on the next update. So don't expect to stuff just
 magically happen if only changing CVars etc.
 
+## Persisting console command history
+
+This mod will persist the previous commands through restarts.

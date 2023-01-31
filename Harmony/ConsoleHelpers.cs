@@ -7,8 +7,11 @@ using System.Reflection.Emit;
 public class ConsoleHelpers : IModApi
 {
 
+    static public string path { get; protected set; }
+
     public void InitMod(Mod mod)
     {
+        path = mod.Path; // make statically available
         Log.Out(" Loading Patch: " + GetType().ToString());
         Harmony harmony = new Harmony(GetType().ToString());
         harmony.PatchAll(Assembly.GetExecutingAssembly());

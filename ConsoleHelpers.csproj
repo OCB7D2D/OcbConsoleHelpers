@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Harmony\CmdConsoleHelpers.cs" />
     <Compile Include="Harmony\ConsoleHelpers.cs" />
+    <Compile Include="Harmony\PersistCmdHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
