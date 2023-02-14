@@ -83,6 +83,36 @@ Other utility functions
         return null;
     }
 
+    private string ItemOrBlockToString(ItemValue item)
+    {
+        if (item.type < Block.ItemsStartHere)
+        {
+            return item.ToBlockValue().Block.GetBlockName();
+        }
+        else
+        {
+            return item.ItemClass.GetItemName();
+        }
+    }
+
+    private void ExecuteLootGroupTest(string name, float stage = 0f)
+    {
+        var manager = GameManager.Instance.lootManager;
+        var container = LootContainer.GetLootContainer(name);
+        if (container == null) throw new System.Exception(
+            string.Format("Loot container is not known {0}", name));
+        EntityPlayer player = GameManager.Instance.World.GetPrimaryPlayer();
+        FastTags tags = new FastTags();
+        Log.Out("Reporting loot from {0} at tier {1}", name, 0);
+        IList<ItemStack> itemStackList = container.Spawn(manager.Random,
+            3, stage, 0.0f, player, tags);
+        foreach (var item in itemStackList)
+        {
+            player.bag.AddItem(item);
+            Log.Out("  {0} x {1}", item.count, ItemOrBlockToString(item.itemValue));
+        }
+    }
+
     public override void Execute(List<string> _params, CommandSenderInfo _senderInfo)
     {
 
@@ -133,7 +163,9 @@ Other utility functions
                         prog.Name, prog.Level,
                         prog.PercToNextLevel, prog.CostForNextLevel);
                     break;
-
+                case "lootgroup":
+                    ExecuteLootGroupTest(_params[1]);
+                    break;
                 default:
                     Log.Warning("Unknown command " + _params[0]);
                     break;
@@ -174,6 +206,10 @@ Other utility functions
                     prog.Level = int.Parse(_params[2]);
                     prog = player.Progression.GetProgressionValue(_params[1]);
                     Log.Out("Set {0} => {1}", _params[1], prog.Level);
+                    break;
+                case "lootgroup":
+                    ExecuteLootGroupTest(_params[1],
+                        float.Parse(_params[2]));
                     break;
                 default:
                     Log.Warning("Unknown command " + _params[0]);
