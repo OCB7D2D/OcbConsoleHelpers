@@ -1,4 +1,4 @@
-# OCB Console Helpers Mod - 7 Days to Die (A20) Addon
+# OCB Console Helpers Mod - 7 Days to Die (A21) Addon
 
 This Mod is intended to be used by other modders. It adds a few console
 commands to help modders with miscellaneous tasks. I will add more commands
@@ -43,3 +43,28 @@ magically happen if only changing CVars etc.
 ## Persisting console command history
 
 This mod will persist the previous commands through restarts.
+
+## Download and Install
+
+[Download from GitHub releases][1] and extract into your A20 Mods folder!  
+Ensure you don't have double nested folders and ModInfo.xml is at right place!
+
+[![GitHub CI Compile Status][3]][2]
+
+## Changelog
+
+### Version 0.2.0
+
+- Update compatibility for 7D2D A21.0(b313)
+
+### Version 0.1.2
+
+- Last A20.6/7 compatible version
+
+## Compatibility
+
+Developed initially for version a20.3(b3), updated through A21.0(b313).
+
+[1]: https://github.com/OCB7D2D/OcbConsoleHelpers/releases
+[2]: https://github.com/OCB7D2D/OcbConsoleHelpers/actions/workflows/ci.yml
+[3]: https://github.com/OCB7D2D/OcbConsoleHelpers/actions/workflows/ci.yml/badge.svg

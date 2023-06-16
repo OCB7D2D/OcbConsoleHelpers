@@ -6,12 +6,12 @@ public class ConsoleHelpersCmd : ConsoleCmdAbstract
 
     private static string info = "OcbConsoleHelpers";
 
-    public override string[] GetCommands()
+    protected override string[] getCommands()
     {
         return new string[2] { info, "ocb" };
     }
 
-    public override string GetDescription() => "OCB Console Helpers";
+    protected override string getDescription() => "OCB Console Helpers";
 
     public override string GetHelp() => @"OCB Console Helpers
 Player/vehicle IK position
@@ -105,7 +105,7 @@ Other utility functions
         FastTags tags = new FastTags();
         Log.Out("Reporting loot from {0} at tier {1}", name, 0);
         IList<ItemStack> itemStackList = container.Spawn(manager.Random,
-            3, stage, 0.0f, player, tags);
+            3, stage, 0.0f, player, tags, false);
         foreach (var item in itemStackList)
         {
             player.bag.AddItem(item);
@@ -134,7 +134,7 @@ Other utility functions
                     break;
                 case "progression":
                     Log.Out("List of player.ProgressionValues");
-                    foreach (var kv in player.Progression.ProgressionValues.Dict)
+                    foreach (var kv in player.Progression.GetDict())
                         Log.Out("{0} => {1} (next {2}%, cost: {3})",
                             kv.Value.Name, kv.Value.Level,
                             kv.Value.PercToNextLevel,
