@@ -106,4 +106,16 @@ public class ConsoleHelpers : IModApi
         }
     }
 
+    /*
+        string name = "#@modfolder(OcbMod):Resources/Bundle.unity3d?" + _params[0];
+        var original = DataLoader.LoadAsset<GameObject>(name);
+        Log.Warning("Loading {0} => {1}", name, original);
+        if (original == null) return;
+        GameObject go = UnityEngine.Object.Instantiate<GameObject>(original);
+        Log.Warning("Instancing {0} => {1}", name, go);
+        if (go == null) return;
+        foreach (var comp in go.GetComponents<UnityEngine.Component>())
+            Log.Warning(" ===> {0}", comp);
+    */
+
 }
