@@ -105,7 +105,7 @@ Other utility functions
         FastTags tags = new FastTags();
         Log.Out("Reporting loot from {0} at tier {1}", name, 0);
         IList<ItemStack> itemStackList = container.Spawn(manager.Random,
-            3, stage, 0.0f, player, tags, false);
+            3, stage, 0.0f, player, tags, false, false);
         foreach (var item in itemStackList)
         {
             player.bag.AddItem(item);
