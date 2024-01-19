@@ -9,7 +9,7 @@ You can use the commands by bringing up the console via F1, although you
 probably should already know that if you want to use this mod, again this
 mod is not meant to be used by end users!
 
-## Helpers to adjust hand/foot positions for vehicles
+## Helpers to adjust hand/foot/seat position/rotation for vehicles
 
 Optimizing hand/foot positions/rotations via xml-edit and re-starting
 the game is very tedious! This mod allows you to adjust the positions
@@ -19,7 +19,8 @@ order to use these functions properly.
 
 - `ocb ikts` // list all ikt targets
 - `ocb ikp LeftHand 5,8,-7` // set position
-- `ocb ikp RightFoot -4,3,2` // set rotation
+- `ocb ikr RightFoot -4,3,2` // set rotation
+- `ocb seat` // show seat position/rotation
 - `ocb seatp -.41,.33,.06` // seat position
 - `ocb seatr -25,0,0` // seat rotation
 

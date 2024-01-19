@@ -14,13 +14,14 @@ public class ConsoleHelpersCmd : ConsoleCmdAbstract
     protected override string getDescription() => "OCB Console Helpers";
 
     public override string GetHelp() => @"OCB Console Helpers
-Player/vehicle IK position
+Player/vehicle IK and seat position/rotation
     
-  `ocb ikts // list all ikt targets`
-  `ocb ikp LeftHand 5,8,-7 // set position`
-  `ocb ikp RightFoot -4,3,2 // set rotation`
-  `ocb seatp -.41,.33,.06 // seat position`
-  `ocb seatr -25,0,0 // seat rotation`
+  `ocb ikts` // list all ikt targets
+  `ocb ikp LeftHand 5,8,-7` // set position
+  `ocb ikr RightFoot -4,3,2` // set rotation
+  `ocb seat` // show seat position/rotation
+  `ocb seatp -.41,.33,.06` // seat position
+  `ocb seatr -25,0,0` // seat rotation
 
 Other utility functions
 
@@ -152,6 +153,9 @@ Other utility functions
                     ReportIKT(player, "RightHand");
                     ReportIKT(player, "LeftFoot");
                     ReportIKT(player, "RightFoot");
+                    break;
+                default:
+                    Log.Warning("Unknown command " + _params[0]);
                     break;
             }
         }
