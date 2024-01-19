@@ -17,12 +17,13 @@ in-game and see the results right away, which helps greatly to speed
 up this process. The primary player must be attached to a vehicle in
 order to use these functions properly.
 
-- `ocb ikts`
-- `ocb ikp LeftHand 5,8.4,-7.2`
-- `ocb ikr LeftHand 28,-32.2,-0.2`
-- `ocb ikp RightFoot -4.2,3.6,2`
+- `ocb ikts` // list all ikt targets
+- `ocb ikp LeftHand 5,8,-7` // set position
+- `ocb ikp RightFoot -4,3,2` // set rotation
+- `ocb seatp -.41,.33,.06` // seat position
+- `ocb seatr -25,0,0` // seat rotation
 
-Note: vector3 positions/rotations must no include any whitespace!
+Note: vector3 positions/rotations must not include any whitespace!
 
 ## Other utility functions
 
@@ -52,6 +53,10 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 [![GitHub CI Compile Status][3]][2]
 
 ## Changelog
+
+### Version 0.2.2
+
+- Add support for vehicle seat adjustments
 
 ### Version 0.2.1
 

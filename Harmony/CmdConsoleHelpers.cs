@@ -16,9 +16,11 @@ public class ConsoleHelpersCmd : ConsoleCmdAbstract
     public override string GetHelp() => @"OCB Console Helpers
 Player/vehicle IK position
     
-  `ocb ikts`
-  `ocb ikp LeftHand 5,8,-7`
-  `ocb ikp RightFoot -4,3,2`
+  `ocb ikts // list all ikt targets`
+  `ocb ikp LeftHand 5,8,-7 // set position`
+  `ocb ikp RightFoot -4,3,2 // set rotation`
+  `ocb seatp -.41,.33,.06 // seat position`
+  `ocb seatr -25,0,0 // seat rotation`
 
 Other utility functions
 
@@ -140,6 +142,11 @@ Other utility functions
                             kv.Value.PercToNextLevel,
                             kv.Value.CostForNextLevel);
                     break;
+                case "seat":
+                    if (player.emodel == null) Log.Error("Must be in a vehicle");
+                    Log.Out("Seat Position: {0}", ReportVector3(player.ModelTransform.localPosition));
+                    Log.Out("Seat Rotation: {0}", ReportVector3(player.ModelTransform.localEulerAngles));
+                    break;
                 case "ikts":
                     ReportIKT(player, "LeftHand");
                     ReportIKT(player, "RightHand");
@@ -165,6 +172,23 @@ Other utility functions
                     break;
                 case "lootgroup":
                     ExecuteLootGroupTest(_params[1]);
+                    break;
+                case "seatp":
+                    if (player.emodel == null) Log.Error("Must be in a vehicle");
+                    var pos = StringParsers.ParseVector3(_params[1]);
+                    player.ModelTransform.SetLocalPositionAndRotation(
+                        pos, player.ModelTransform.localRotation);
+                    Log.Out("Set seat position to {0}",
+                        player.ModelTransform.localPosition);
+                    break;
+                case "seatr":
+                    if (player.emodel == null) Log.Error("Must be in a vehicle");
+                    var rot = StringParsers.ParseVector3(_params[1]);
+                    player.ModelTransform.SetLocalPositionAndRotation(
+                        player.ModelTransform.localPosition,
+                        Quaternion.Euler(rot.x, rot.y, rot.z));
+                    Log.Out("Set seat rotation to {0}",
+                        player.ModelTransform.localEulerAngles);
                     break;
                 default:
                     Log.Warning("Unknown command " + _params[0]);
@@ -221,6 +245,7 @@ Other utility functions
 
     private void ReportIKT(EntityPlayer player, string name)
     {
+        if (player.emodel == null) Log.Error("Must be in a vehicle");
         IKController.Target? ikt = GetPlayerIK(player, name);
         if (ikt == null)
         {
@@ -241,6 +266,7 @@ Other utility functions
 
     private void SetPlayerIKP(EntityPlayer player, string name, Vector3 vec)
     {
+        if (player.emodel == null) Log.Error("Must be in a vehicle");
         if (UpdateVehiclePartIKP(player, name, vec))
             Log.Out("Set {0} Position to {1}", name, ReportVector3(vec));
         else Log.Error("IK Target {0} not available?", name);
@@ -248,6 +274,7 @@ Other utility functions
 
     private void SetPlayerIKR(EntityPlayer player, string name, Vector3 vec)
     {
+        if (player.emodel == null) Log.Error("Must be in a vehicle");
         if (UpdateVehiclePartIKR(player, name, vec))
             Log.Out("Set {0} Rotation to {1}", name, ReportVector3(vec));
         else Log.Error("IK Target {0} not available?", name);
