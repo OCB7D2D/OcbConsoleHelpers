@@ -49,6 +49,7 @@ Other utility functions
             if (tr != null) tr.localEulerAngles = vec;
             else ikt.rotation.Set(vec.x, vec.y, vec.z);
             // ikct.OnAnimatorIK(); // Update stuff
+            ikct.targets[i] = ikt; // Update struct
             return true;
         }
         return false;
@@ -67,6 +68,7 @@ Other utility functions
             if (tr != null) tr.localPosition = vec;
             else ikt.position.Set(vec.x, vec.y, vec.z);
             // ikct.OnAnimatorIK(); // Update stuff
+            ikct.targets[i] = ikt; // Update struct
             return true;
         }
         return false;

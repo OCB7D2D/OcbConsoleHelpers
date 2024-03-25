@@ -55,6 +55,10 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 
 ## Changelog
 
+### Version 0.2.3
+
+- Fix issue setting IK targets on some vehicles
+
 ### Version 0.2.2
 
 - Add support for vehicle seat adjustments
