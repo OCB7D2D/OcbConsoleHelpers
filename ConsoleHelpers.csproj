@@ -99,6 +99,7 @@
     <Compile Include="Harmony\CmdConsoleHelpers.cs" />
     <Compile Include="Harmony\ConsoleHelpers.cs" />
     <Compile Include="Harmony\PersistCmdHistory.cs" />
+    <Compile Include="Harmony\XUiC_OcbVehicleIKT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

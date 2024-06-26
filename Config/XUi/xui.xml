@@ -1,0 +1,7 @@
+﻿<configs>
+	<append xpath="/xui/ruleset[@name='default']">
+		<window_group name="ocbVehicleIKT" controller="XUiC_OcbVehicleIKT, ConsoleHelpers" defaultSelected="btnLoad">
+			<window name="windowOcbVehicleIKT"/>
+		</window_group>
+	</append>
+</configs>

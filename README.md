@@ -1,4 +1,4 @@
-# OCB Console Helpers Mod - 7 Days to Die (A21) Addon
+# OCB Console Helpers Mod - 7 Days to Die (V1.0 exp) Addon
 
 This Mod is intended to be used by other modders. It adds a few console
 commands to help modders with miscellaneous tasks. I will add more commands
@@ -17,6 +17,7 @@ in-game and see the results right away, which helps greatly to speed
 up this process. The primary player must be attached to a vehicle in
 order to use these functions properly.
 
+- `ocb vikt` // open ui for adjustments
 - `ocb ikts` // list all ikt targets
 - `ocb ikp LeftHand 5,8,-7` // set position
 - `ocb ikr RightFoot -4,3,2` // set rotation
@@ -48,12 +49,17 @@ This mod will persist the previous commands through restarts.
 
 ## Download and Install
 
-[Download from GitHub releases][1] and extract into your A20 Mods folder!  
+[Download from GitHub releases][1] and extract into your Mods folder!  
 Ensure you don't have double nested folders and ModInfo.xml is at right place!
 
 [![GitHub CI Compile Status][3]][2]
 
 ## Changelog
+
+### Version 0.3.0
+
+- First compatibility with V1.0 (exp)
+- Add `vikt` cmd to open adjustment UI
 
 ### Version 0.2.3
 
@@ -74,10 +80,6 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 ### Version 0.1.2
 
 - Last A20.6/7 compatible version
-
-## Compatibility
-
-Developed initially for version a20.3(b3), updated through A21.0(b313).
 
 [1]: https://github.com/OCB7D2D/OcbConsoleHelpers/releases
 [2]: https://github.com/OCB7D2D/OcbConsoleHelpers/actions/workflows/ci.yml

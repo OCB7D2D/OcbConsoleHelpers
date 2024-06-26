@@ -6,12 +6,12 @@ public class ConsoleHelpersCmd : ConsoleCmdAbstract
 
     private static string info = "OcbConsoleHelpers";
 
-    protected override string[] getCommands()
+    public override string[] getCommands()
     {
         return new string[2] { info, "ocb" };
     }
 
-    protected override string getDescription() => "OCB Console Helpers";
+    public override string getDescription() => "OCB Console Helpers";
 
     public override string GetHelp() => @"OCB Console Helpers
 Player/vehicle IK and seat position/rotation
@@ -107,7 +107,7 @@ Other utility functions
         if (container == null) throw new System.Exception(
             string.Format("Loot container is not known {0}", name));
         EntityPlayer player = GameManager.Instance.World.GetPrimaryPlayer();
-        FastTags tags = new FastTags();
+        FastTags<TagGroup.Global> tags = new FastTags<TagGroup.Global>();
         Log.Out("Reporting loot from {0} at tier {1}", name, 0);
         IList<ItemStack> itemStackList = container.Spawn(manager.Random,
             3, stage, 0.0f, player, tags, false, false);
@@ -121,12 +121,19 @@ Other utility functions
     public override void Execute(List<string> _params, CommandSenderInfo _senderInfo)
     {
 
-        EntityPlayer player = GameManager.Instance.World.GetPrimaryPlayer();
+        EntityPlayerLocal player = GameManager.Instance.World.GetPrimaryPlayer();
 
         if (_params.Count == 1)
         {
             switch (_params[0])
             {
+                case "vikt":
+                    var xui = LocalPlayerUI.GetUIForPlayer(player).xui;
+                    var wm = xui.playerUI.windowManager;
+                    if (!wm.IsWindowOpen("ocbVehicleIKT"))
+                        wm.Open("ocbVehicleIKT", true, true);
+                    else wm.Close("ocbVehicleIKT"); 
+                    break;
                 case "cvars":
                     Log.Out("List of player.Buffs.CVars");
                     foreach (var kv in player.Buffs.CVars)
