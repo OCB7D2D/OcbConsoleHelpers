@@ -56,6 +56,10 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 
 ## Changelog
 
+### Version 0.3.1
+
+- Mitigate crash when modifying rig for feet IKs
+
 ### Version 0.3.0
 
 - First compatibility with V1.0 (exp)

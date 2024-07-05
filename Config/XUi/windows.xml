@@ -38,13 +38,13 @@
 				<label text="Y:" width="40" height="30" pos="-320,-322"/>
 				<label text="Z:" width="40" height="30" pos="-320,-358"/>
 
-				<combobox name="uiLeftHandPosX" type="ComboBoxFloat" width="180" height="30" pos="-280,-284" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiLeftHandPosY" type="ComboBoxFloat" width="180" height="30" pos="-280,-320" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiLeftHandPosZ" type="ComboBoxFloat" width="180" height="30" pos="-280,-356" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiLeftHandPosX" type="ComboBoxFloat" width="180" height="30" pos="-280,-284" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiLeftHandPosY" type="ComboBoxFloat" width="180" height="30" pos="-280,-320" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiLeftHandPosZ" type="ComboBoxFloat" width="180" height="30" pos="-280,-356" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
 
-				<combobox name="uiRightHandPosX" type="ComboBoxFloat" width="180" height="30" pos="-80,-284" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiRightHandPosY" type="ComboBoxFloat" width="180" height="30" pos="-80,-320" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiRightHandPosZ" type="ComboBoxFloat" width="180" height="30" pos="-80,-356" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiRightHandPosX" type="ComboBoxFloat" width="180" height="30" pos="-80,-284" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiRightHandPosY" type="ComboBoxFloat" width="180" height="30" pos="-80,-320" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiRightHandPosZ" type="ComboBoxFloat" width="180" height="30" pos="-80,-356" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
 
 				<label text="Hand Rotations (Left/Right):" width="280" height="30" pos="-320,-396"/>
 
@@ -66,13 +66,13 @@
 				<label text="Y:" width="40" height="30" pos="-320,-618"/>
 				<label text="Z:" width="40" height="30" pos="-320,-654"/>
 
-				<combobox name="uiLeftFootPosX" type="ComboBoxFloat" width="180" height="30" pos="-280,-580" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiLeftFootPosY" type="ComboBoxFloat" width="180" height="30" pos="-280,-616" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiLeftFootPosZ" type="ComboBoxFloat" width="180" height="30" pos="-280,-652" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiLeftFootPosX" type="ComboBoxFloat" width="180" height="30" pos="-280,-580" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiLeftFootPosY" type="ComboBoxFloat" width="180" height="30" pos="-280,-616" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiLeftFootPosZ" type="ComboBoxFloat" width="180" height="30" pos="-280,-652" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
 
-				<combobox name="uiRightFootPosX" type="ComboBoxFloat" width="180" height="30" pos="-80,-580" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiRightFootPosY" type="ComboBoxFloat" width="180" height="30" pos="-80,-616" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
-				<combobox name="uiRightFootPosZ" type="ComboBoxFloat" width="180" height="30" pos="-80,-652" value_increment="0.01" value_min="-1" value_max="1" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiRightFootPosX" type="ComboBoxFloat" width="180" height="30" pos="-80,-580" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiRightFootPosY" type="ComboBoxFloat" width="180" height="30" pos="-80,-616" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
+				<combobox name="uiRightFootPosZ" type="ComboBoxFloat" width="180" height="30" pos="-80,-652" value_increment="0.01" value_min="-2" value_max="2" value_wrap="false" format_string="0.000"/>
 
 				<label text="Foot Rotations (Left/Right):" width="280" height="30" pos="-320,-692"/>
 

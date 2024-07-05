@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using static LightingAround;
 
 public class XUiC_OcbVehicleIKT : XUiController
 {
@@ -21,14 +22,16 @@ public class XUiC_OcbVehicleIKT : XUiController
 
     private void SetIktPos(ref IKController.Target ikt, Vector3 position)
     {
-        if (ikt.transform == null) ikt.position = position;
+        ikt.position = position;
+        if (ikt.transform == null) return;
         else ikt.transform.localPosition = position;
     }
 
     private void SetIktRot(ref IKController.Target ikt, Vector3 rotation)
     {
-        if (ikt.transform == null) ikt.rotation = rotation;
-        else ikt.transform.localEulerAngles = rotation;
+        ikt.rotation = rotation;
+        if (ikt.transform == null) return;
+        ikt.transform.localEulerAngles = rotation;
     }
 
     // ####################################################################
@@ -253,51 +256,65 @@ public class XUiC_OcbVehicleIKT : XUiController
             (float)uiSeatRotX.Value,
             (float)uiSeatRotY.Value,
             (float)uiSeatRotZ.Value);
+        // States for debouncing
+        bool handChanged = false;
+        bool footChanged = false;
         // Update position and rotation for all ik targets
         for (int i = 0; i < ikct?.targets?.Count; i++)
         {
+            Vector3 npos, nrot;
+            var pos = GetIktPos(ikct.targets[i]);
+            var rot = GetIktRot(ikct.targets[i]);
             IKController.Target ikt = ikct.targets[i];
             switch (ikt.avatarGoal)
             {
                 case UnityEngine.AvatarIKGoal.LeftHand:
-                    SetIktPos(ref ikt, new Vector3(
+                    SetIktPos(ref ikt, npos = new Vector3(
                         (float)uiLeftHandPosX.Value,
                         (float)uiLeftHandPosY.Value,
                         (float)uiLeftHandPosZ.Value));
-                    SetIktRot(ref ikt, new Vector3(
+                    SetIktRot(ref ikt, nrot = new Vector3(
                         (float)uiLeftHandRotX.Value,
                         (float)uiLeftHandRotY.Value,
                         (float)uiLeftHandRotZ.Value));
+                    handChanged |= (pos != npos);
+                    handChanged |= (rot != nrot);
                     break;
                 case UnityEngine.AvatarIKGoal.RightHand:
-                    SetIktPos(ref ikt, new Vector3(
+                    SetIktPos(ref ikt, npos = new Vector3(
                         (float)uiRightHandPosX.Value,
                         (float)uiRightHandPosY.Value,
                         (float)uiRightHandPosZ.Value));
-                    SetIktRot(ref ikt, new Vector3(
+                    SetIktRot(ref ikt, nrot = new Vector3(
                         (float)uiRightHandRotX.Value,
                         (float)uiRightHandRotY.Value,
                         (float)uiRightHandRotZ.Value));
+                    handChanged |= (pos != npos);
+                    handChanged |= (rot != nrot);
                     break;
                 case UnityEngine.AvatarIKGoal.LeftFoot:
-                    SetIktPos(ref ikt, new Vector3(
+                    SetIktPos(ref ikt, npos = new Vector3(
                         (float)uiLeftFootPosX.Value,
                         (float)uiLeftFootPosY.Value,
                         (float)uiLeftFootPosZ.Value));
-                    SetIktRot(ref ikt, new Vector3(
+                    SetIktRot(ref ikt, nrot = new Vector3(
                         (float)uiLeftFootRotX.Value,
                         (float)uiLeftFootRotY.Value,
                         (float)uiLeftFootRotZ.Value));
+                    footChanged |= (pos != npos);
+                    footChanged |= (rot != nrot);
                     break;
                 case UnityEngine.AvatarIKGoal.RightFoot:
-                    SetIktPos(ref ikt, new Vector3(
+                    SetIktPos(ref ikt, npos = new Vector3(
                         (float)uiRightFootPosX.Value,
                         (float)uiRightFootPosY.Value,
                         (float)uiRightFootPosZ.Value));
-                    SetIktRot(ref ikt, new Vector3(
+                    SetIktRot(ref ikt, nrot = new Vector3(
                         (float)uiRightFootRotX.Value,
                         (float)uiRightFootRotY.Value,
                         (float)uiRightFootRotZ.Value));
+                    footChanged |= (pos != npos);
+                    footChanged |= (rot != nrot);
                     break;
                 default:
                     break;
@@ -309,7 +326,8 @@ public class XUiC_OcbVehicleIKT : XUiController
         // ikct.GetComponent<UnityEngine.Animations.Rigging.RigBuilder>().graph.Stop();
         // ikct.GetComponent<UnityEngine.Animations.Rigging.RigBuilder>().Clear();
         // ikct.GetComponent<UnityEngine.Animations.Rigging.RigBuilder>().Build();
-        ikct.ModifyRig();
+        // Avoid it at least when not necessary to change
+        if (footChanged) ikct.ModifyRig();
 
     }
 
