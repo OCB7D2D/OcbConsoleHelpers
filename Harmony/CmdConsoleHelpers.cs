@@ -22,6 +22,7 @@ Player/vehicle IK and seat position/rotation
   `ocb seat` // show seat position/rotation
   `ocb seatp -.41,.33,.06` // seat position
   `ocb seatr -25,0,0` // seat rotation
+  `ocb seat 0` // Switch seat
 
 Other utility functions
 
@@ -185,6 +186,13 @@ Other utility functions
                     break;
                 case "lootgroup":
                     ExecuteLootGroupTest(_params[1]);
+                    break;
+                case "seat":
+                    if (player.emodel == null) Log.Error("Must be in a vehicle");
+                    var seat = StringParsers.ParseSInt32(_params[1]);
+                    var vehicle = player.AttachedToEntity;
+                    player.SendDetach();
+                    player.StartAttachToEntity(vehicle, seat);
                     break;
                 case "seatp":
                     if (player.emodel == null) Log.Error("Must be in a vehicle");

@@ -59,6 +59,8 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 ### Version 0.3.1
 
 - Mitigate crash when modifying rig for feet IKs
+- Add seat switching command (experimental)
+- Increase some UI min/max values per demand
 
 ### Version 0.3.0
 
