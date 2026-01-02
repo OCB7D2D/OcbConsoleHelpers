@@ -56,6 +56,10 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 
 ## Changelog
 
+### Version 0.3.2
+
+- Recompile for 7D2D V2.5 (b23)
+
 ### Version 0.3.1
 
 - Mitigate crash when modifying rig for feet IKs
