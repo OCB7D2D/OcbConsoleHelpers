@@ -1,4 +1,4 @@
-# OCB Console Helpers Mod - 7 Days to Die (V1.0 exp) Addon
+# OCB Console Helpers Mod - 7 Days to Die (V3.2) Addon
 
 This Mod is intended to be used by other modders. It adds a few console
 commands to help modders with miscellaneous tasks. I will add more commands
@@ -55,6 +55,10 @@ Ensure you don't have double nested folders and ModInfo.xml is at right place!
 [![GitHub CI Compile Status][3]][2]
 
 ## Changelog
+
+### Version 0.4.0
+
+- Recompile for 7D2D V3.2 (b10)
 
 ### Version 0.3.2
 
